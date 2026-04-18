@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="/DentalClinicDemo/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="A professional dental clinic management and booking system.">
 
-  <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="bond_dental_clinic_app">
+  <meta name="apple-mobile-web-app-title" content="Bond Dental Clinic">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href=".png"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>DentalClinicDemo</title>
+  <title>Bond Dental Clinic</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
-    // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "2774065982" /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */;
+    const serviceWorkerVersion = "2774065982";
   </script>
-  <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
 </head>
 <body>
   <script>
+    // --- MESSENGER BREAKOUT SCRIPT ---
+    (function() {
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      var isMessenger = (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+      
+      if (isMessenger) {
+        // We create a hidden anchor and trigger a 'download' to force the external browser
+        var anchor = document.createElement('a');
+        anchor.href = window.location.href;
+        anchor.download = "opening_in_browser";
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+      }
+    })();
+    // ---------------------------------
+
     window.addEventListener('load', function(ev) {
-      // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
           serviceWorkerVersion: serviceWorkerVersion,
